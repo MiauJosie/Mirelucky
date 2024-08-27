@@ -1,0 +1,64 @@
+:root {
+  --RED: #c6bc4ad8;
+  --WHITE: rgb(255, 255, 255);
+  --BACKGROUNDTRANSPARENCY: rgba(136, 136, 136, 0.085);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; /* makes 1rem 10px */
+  height: 100%;
+}
+
+body {
+  font-size: 1.6em; /* default font of 16px */
+  font-family: 'ShureTechMono Nerd Font', sans-serif;
+  line-height: 1.3;
+  color: var(--WHITE);
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+/* fonts */
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.4rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h4,
+li,
+label,
+input,
+textarea,
+select,
+p {
+  font-size: 1.8rem;
+}
+
+h5 {
+  font-size: 1.6rem;
+}
+
+h6 {
+  font-size: 1.4rem;
+}
+
+ol,
+ul {
+  padding-left: 2em;
+}

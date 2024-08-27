@@ -1,0 +1,53 @@
+.RollOptions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 20rem;
+
+  transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.RollOptions img {
+  height: 6rem;
+  width: 6rem;
+  margin: 0;
+
+  background: var(--BACKGROUNDTRANSPARENCY);
+  border-radius: 100px;
+  backdrop-filter: blur(2px);
+  outline: solid 0.5px rgba(255, 255, 255, 0.259);
+  box-shadow: 0 0 15px 2px rgba(45, 45, 45, 0.196);
+}
+
+.RollOptions h2 {
+  height: 5rem;
+  display: flex;
+  align-items: center;
+}
+
+.RollOptions .OptionWrapper {
+  height: 11rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bounce {
+  animation: pop 0.2s ease forwards;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

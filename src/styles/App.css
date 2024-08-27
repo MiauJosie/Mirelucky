@@ -1,0 +1,12 @@
+section {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  padding: 1rem;
+
+  background-image: url('../assets/background.jpg');
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
+  background-attachment: fixed;
+}

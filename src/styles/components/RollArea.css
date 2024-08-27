@@ -1,0 +1,22 @@
+.RollArea {
+  height: 100%;
+  width: 65%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  position: relative;
+}
+
+.Title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Title h1 {
+  font-size: 5rem;
+  color: var(--RED);
+}
