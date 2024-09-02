@@ -15,7 +15,6 @@ function RollButton() {
       className='RollButton'
       style={{transform: isVisible ? 'translateY(-2rem)' : ''}}
     >
-      {/*isVisible && <RollOptions isVisible={isVisible} />*/}
       <RollOptions isVisible={isVisible} />
       <img src={Img} alt='RollButton' onClick={toggleRollOptions} />
     </div>

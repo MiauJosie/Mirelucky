@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import '../../styles/components/RollArea/RollOptions.css';
 
 interface RollOptionsProps {
@@ -7,26 +7,48 @@ interface RollOptionsProps {
 
 function RollOptions({isVisible}: RollOptionsProps) {
   // Initialize bounce state for each image
-  const [bounces, setBounces] = useState([false, false, false]);
+  const [bounces, setBounces] = useState<boolean[]>([false, false, false]);
+  const [count, setCount] = useState<number[]>([0, 0, 0]);
+  const [rollAvailable, setRollAvailable] = useState<boolean>(false);
+
+  useEffect(() => {
+    setRollAvailable(count[0] > 0 || count[1] > 0 || count[2] > 0);
+  }, [count]);
+
+  const handleContextMenu = (index: number, event: React.MouseEvent) => {
+    event.preventDefault();
+
+    const newCount = [...count];
+    count[index] > 0 ? (newCount[index] -= 1) : null;
+    setCount(newCount);
+
+    animate(index);
+  };
+
+  const handleClick = (index: number, event: React.MouseEvent) => {
+    event.preventDefault();
+
+    const newCount = [...count];
+    newCount[index] += 1;
+    setCount(newCount);
+
+    animate(index);
+  };
 
   const animate = (index: number) => {
-    // Set the bounce state for the clicked image to true
     setBounces((prevBounces) => {
-      // Create a copy of the previous state
       const newBounces = [...prevBounces];
       newBounces[index] = true;
       return newBounces;
     });
 
-    // Reset bounce state after animation
     setTimeout(() => {
       setBounces((prevBounces) => {
-        // Create a copy of the previous state
         const newBounces = [...prevBounces];
         newBounces[index] = false;
         return newBounces;
       });
-    }, 100); // Match the duration of your animation
+    }, 100);
   };
 
   return (
@@ -38,9 +60,10 @@ function RollOptions({isVisible}: RollOptionsProps) {
       }}
     >
       <div className='OptionWrapper'>
-        <h2>0</h2>
+        <h2>{count[0]}</h2>
         <img
-          onClick={() => animate(0)}
+          onClick={(event) => handleClick(0, event)}
+          onContextMenu={(event) => handleContextMenu(0, event)}
           className={bounces[0] ? 'bounce' : ''}
           style={{
             cursor: isVisible ? 'pointer' : 'default',
@@ -50,9 +73,10 @@ function RollOptions({isVisible}: RollOptionsProps) {
         />
       </div>
       <div className='OptionWrapper'>
-        <h2>0</h2>
+        <h2>{count[1]}</h2>
         <img
-          onClick={() => animate(1)}
+          onClick={(event) => handleClick(1, event)}
+          onContextMenu={(event) => handleContextMenu(1, event)}
           className={bounces[1] ? 'bounce' : ''}
           style={{
             cursor: isVisible ? 'pointer' : 'default',
@@ -62,9 +86,10 @@ function RollOptions({isVisible}: RollOptionsProps) {
         />
       </div>
       <div className='OptionWrapper'>
-        <h2>0</h2>
+        <h2>{count[2]}</h2>
         <img
-          onClick={() => animate(2)}
+          onClick={(event) => handleClick(2, event)}
+          onContextMenu={(event) => handleContextMenu(2, event)}
           className={bounces[2] ? 'bounce' : ''}
           style={{
             cursor: isVisible ? 'pointer' : 'default',

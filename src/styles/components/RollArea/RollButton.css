@@ -8,6 +8,7 @@
   align-items: center;
 
   transition: transform 0.2s ease 0s;
+  position: relative;
 }
 
 .RollButton img {
