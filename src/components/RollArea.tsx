@@ -11,6 +11,7 @@ function RollArea() {
       </div>
       <CurrentRoll />
       <RollButton />
+      <div></div>
     </div>
   );
 }
