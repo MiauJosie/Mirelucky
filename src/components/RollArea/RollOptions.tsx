@@ -1,15 +1,14 @@
-import {useState, useEffect} from 'react';
-import '../../styles/components/RollArea/RollOptions.css';
+import { useState, useEffect, useContext } from "react";
+import "../../styles/components/RollArea/RollOptions.css";
+import { Context } from "./RollButton";
 
 interface RollOptionsProps {
   isVisible: boolean;
 }
 
-function RollOptions({isVisible}: RollOptionsProps) {
-  // Initialize bounce state for each image
+function RollOptions({ isVisible }: RollOptionsProps) {
   const [bounces, setBounces] = useState<boolean[]>([false, false, false]);
-  const [count, setCount] = useState<number[]>([0, 0, 0]);
-  const [rollAvailable, setRollAvailable] = useState<boolean>(false);
+  const [count, setCount, setRollAvailable] = useContext(Context);
 
   useEffect(() => {
     setRollAvailable(count[0] > 0 || count[1] > 0 || count[2] > 0);
@@ -53,49 +52,49 @@ function RollOptions({isVisible}: RollOptionsProps) {
 
   return (
     <div
-      className='RollOptions'
+      className="RollOptions"
       style={{
         opacity: isVisible ? 1 : 0,
-        transform: isVisible ? '' : 'translateY(2rem)',
+        transform: isVisible ? "" : "translateY(2rem)",
       }}
     >
-      <div className='OptionWrapper'>
+      <div className="OptionWrapper">
         <h2>{count[0]}</h2>
         <img
           onClick={(event) => handleClick(0, event)}
           onContextMenu={(event) => handleContextMenu(0, event)}
-          className={bounces[0] ? 'bounce' : ''}
+          className={bounces[0] ? "bounce" : ""}
           style={{
-            cursor: isVisible ? 'pointer' : 'default',
+            cursor: isVisible ? "pointer" : "default",
           }}
-          src='../../src/assets/d20.png'
-          alt='d20'
+          src="../../src/assets/d20.png"
+          alt="d20"
         />
       </div>
-      <div className='OptionWrapper'>
+      <div className="OptionWrapper">
         <h2>{count[1]}</h2>
         <img
           onClick={(event) => handleClick(1, event)}
           onContextMenu={(event) => handleContextMenu(1, event)}
-          className={bounces[1] ? 'bounce' : ''}
+          className={bounces[1] ? "bounce" : ""}
           style={{
-            cursor: isVisible ? 'pointer' : 'default',
+            cursor: isVisible ? "pointer" : "default",
           }}
-          src='../../src/assets/combatdice.png'
-          alt='combat dice'
+          src="../../src/assets/combatdice.png"
+          alt="combat dice"
         />
       </div>
-      <div className='OptionWrapper'>
+      <div className="OptionWrapper">
         <h2>{count[2]}</h2>
         <img
           onClick={(event) => handleClick(2, event)}
           onContextMenu={(event) => handleContextMenu(2, event)}
-          className={bounces[2] ? 'bounce' : ''}
+          className={bounces[2] ? "bounce" : ""}
           style={{
-            cursor: isVisible ? 'pointer' : 'default',
+            cursor: isVisible ? "pointer" : "default",
           }}
-          src='../../src/assets/locationdice.png'
-          alt='location dice'
+          src="../../src/assets/locationdice.png"
+          alt="location dice"
         />
       </div>
     </div>
