@@ -1,0 +1,45 @@
+.CurrentRoll {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  min-width: 20rem;
+  max-width: 61rem;
+  height: 40rem;
+}
+
+.CurrentRoll .Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--BACKGROUNDTRANSPARENCY);
+  border-radius: 10px;
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.259);
+  box-shadow: 0 0 15px 2px rgba(45, 45, 45, 0.196);
+
+  width: 100%;
+  padding: 0.5rem;
+  padding-top: 1rem;
+
+  transition: opacity 0.1s ease-out;
+}
+
+.CurrentRoll .Container .Dices {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  width: 100%;
+}
+
+.CurrentRoll .Container .Dices img {
+  height: 4rem;
+  width: 4rem;
+  margin: 1rem;
+
+  transition: transform 0.2s ease;
+}

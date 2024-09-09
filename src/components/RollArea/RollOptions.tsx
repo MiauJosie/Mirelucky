@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import "../../styles/components/RollArea/RollOptions.css";
-import { Context } from "./RollButton";
+import { RollAvailable } from "./RollButton";
+import { Count } from "../RollArea";
 
 interface RollOptionsProps {
   isVisible: boolean;
@@ -8,7 +9,23 @@ interface RollOptionsProps {
 
 function RollOptions({ isVisible }: RollOptionsProps) {
   const [bounces, setBounces] = useState<boolean[]>([false, false, false]);
-  const [count, setCount, setRollAvailable] = useContext(Context);
+  const [setRollAvailable] = useContext(RollAvailable);
+  const [
+    count,
+    setCount,
+    d20Result,
+    setD20Result,
+    combatResult,
+    setCombatResult,
+    locationResult,
+    setLocationResult,
+    d20Rolled,
+    setD20Rolled,
+    combatRolled,
+    setCombatRolled,
+    locationRolled,
+    setLocationRolled,
+  ] = useContext(Count);
 
   useEffect(() => {
     setRollAvailable(count[0] > 0 || count[1] > 0 || count[2] > 0);
@@ -18,7 +35,7 @@ function RollOptions({ isVisible }: RollOptionsProps) {
     event.preventDefault();
 
     const newCount = [...count];
-    count[index] > 0 ? (newCount[index] -= 1) : null;
+    count[index] > 0 ? (newCount[index] -= 1) : (newCount[index] = 10);
     setCount(newCount);
 
     animate(index);
@@ -28,7 +45,7 @@ function RollOptions({ isVisible }: RollOptionsProps) {
     event.preventDefault();
 
     const newCount = [...count];
-    newCount[index] += 1;
+    newCount[index] < 10 ? (newCount[index] += 1) : (newCount[index] = 0);
     setCount(newCount);
 
     animate(index);

@@ -1,14 +1,33 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import "../../styles/components/RollArea/RollButton.css";
 import ImgOpen from "../../assets/rollbutton.png";
 import ImgRoll from "../../assets/rollbuttonready.png";
 import ImgClose from "../../assets/rollbuttonclose.png";
 import RollOptions from "./RollOptions";
 
+import { Count } from "../RollArea";
+
 function RollButton() {
-  const [isVisible, setIsVisible] = useState<boolean>(false);
-  const [count, setCount] = useState<number[]>([0, 0, 0]);
+  const [isVisible, setIsVisible] = useState<boolean>(true);
   const [rollAvailable, setRollAvailable] = useState<boolean>(false);
+  const [
+    count,
+    setCount,
+    d20Result,
+    setD20Result,
+    combatResult,
+    setCombatResult,
+    locationResult,
+    setLocationResult,
+    d20Rolled,
+    setD20Rolled,
+    combatRolled,
+    setCombatRolled,
+    locationRolled,
+    setLocationRolled,
+    hasBeenRolled,
+    setHasBeenRolled,
+  ] = useContext(Count);
 
   const toggleRollOptions = () => {
     setIsVisible((isVisible) => !isVisible);
@@ -27,27 +46,36 @@ function RollButton() {
   };
 
   const rollSelectedDice = () => {
+    setD20Rolled(false);
+    setCombatRolled(false);
+    setLocationRolled(false);
+
     if (count[0] > 0) {
-      const result: number[] = rollTheseDice(20, count[0]);
-      console.log(count[0]);
-      console.log(result);
+      setD20Result(rollTheseDice(20, count[0]));
+      setD20Rolled(true);
     }
 
     if (count[1] > 0) {
-      const result: number[] = rollTheseDice(6, count[1]);
-      console.log(count[1]);
-      console.log(result);
+      setCombatResult(rollTheseDice(6, count[1]));
+      setCombatRolled(true);
     }
 
     if (count[2] > 0) {
-      const result: number[] = rollTheseDice(20, count[2]);
-      console.log(count[2]);
-      console.log(result);
+      setLocationResult(rollTheseDice(20, count[2]));
+      setLocationRolled(true);
     }
+
+    setHasBeenRolled(false);
+
+    setTimeout(() => {
+      setHasBeenRolled(true);
+    }, 200);
+
+    setCount([0, 0, 0]);
   };
 
   return (
-    <Context.Provider value={[count, setCount, setRollAvailable]}>
+    <RollAvailable.Provider value={[setRollAvailable]}>
       <div
         className="RollButton"
         style={{ transform: isVisible ? "translateY(-2rem)" : "" }}
@@ -65,9 +93,9 @@ function RollButton() {
           }
         />
       </div>
-    </Context.Provider>
+    </RollAvailable.Provider>
   );
 }
 
-export const Context = createContext<any[]>([]);
+export const RollAvailable = createContext<any>([]);
 export default RollButton;
