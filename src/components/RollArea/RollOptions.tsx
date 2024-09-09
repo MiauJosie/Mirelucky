@@ -3,11 +3,7 @@ import "../../styles/components/RollArea/RollOptions.css";
 import { RollAvailable } from "./RollButton";
 import { Count } from "../RollArea";
 
-interface RollOptionsProps {
-  isVisible: boolean;
-}
-
-function RollOptions({ isVisible }: RollOptionsProps) {
+function RollOptions() {
   const [bounces, setBounces] = useState<boolean[]>([false, false, false]);
   const [setRollAvailable] = useContext(RollAvailable);
   const [
@@ -68,22 +64,13 @@ function RollOptions({ isVisible }: RollOptionsProps) {
   };
 
   return (
-    <div
-      className="RollOptions"
-      style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? "" : "translateY(2rem)",
-      }}
-    >
+    <div className="RollOptions">
       <div className="OptionWrapper">
         <h2>{count[0]}</h2>
         <img
           onClick={(event) => handleClick(0, event)}
           onContextMenu={(event) => handleContextMenu(0, event)}
           className={bounces[0] ? "bounce" : ""}
-          style={{
-            cursor: isVisible ? "pointer" : "default",
-          }}
           src="../../src/assets/d20.png"
           alt="d20"
         />
@@ -94,9 +81,6 @@ function RollOptions({ isVisible }: RollOptionsProps) {
           onClick={(event) => handleClick(1, event)}
           onContextMenu={(event) => handleContextMenu(1, event)}
           className={bounces[1] ? "bounce" : ""}
-          style={{
-            cursor: isVisible ? "pointer" : "default",
-          }}
           src="../../src/assets/combatdice.png"
           alt="combat dice"
         />
@@ -107,9 +91,6 @@ function RollOptions({ isVisible }: RollOptionsProps) {
           onClick={(event) => handleClick(2, event)}
           onContextMenu={(event) => handleContextMenu(2, event)}
           className={bounces[2] ? "bounce" : ""}
-          style={{
-            cursor: isVisible ? "pointer" : "default",
-          }}
           src="../../src/assets/locationdice.png"
           alt="location dice"
         />

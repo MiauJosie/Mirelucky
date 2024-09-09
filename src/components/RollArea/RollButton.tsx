@@ -1,14 +1,11 @@
 import { createContext, useContext, useState } from "react";
 import "../../styles/components/RollArea/RollButton.css";
-import ImgOpen from "../../assets/rollbutton.png";
-import ImgRoll from "../../assets/rollbuttonready.png";
-import ImgClose from "../../assets/rollbuttonclose.png";
+import ButtonImg from "../../assets/rollbutton.png";
 import RollOptions from "./RollOptions";
 
 import { Count } from "../RollArea";
 
 function RollButton() {
-  const [isVisible, setIsVisible] = useState<boolean>(true);
   const [rollAvailable, setRollAvailable] = useState<boolean>(false);
   const [
     count,
@@ -28,10 +25,6 @@ function RollButton() {
     hasBeenRolled,
     setHasBeenRolled,
   ] = useContext(Count);
-
-  const toggleRollOptions = () => {
-    setIsVisible((isVisible) => !isVisible);
-  };
 
   const rollThisDice = (faces: number) => {
     return Math.floor(Math.random() * faces) + 1;
@@ -74,23 +67,18 @@ function RollButton() {
     setCount([0, 0, 0]);
   };
 
+  const noDiceSelected = () => {
+    alert("You didn't select any dice!");
+  };
+
   return (
     <RollAvailable.Provider value={[setRollAvailable]}>
-      <div
-        className="RollButton"
-        style={{ transform: isVisible ? "translateY(-2rem)" : "" }}
-      >
-        <RollOptions isVisible={isVisible} />
+      <div className="RollButton">
+        <RollOptions />
         <img
-          src={isVisible ? (rollAvailable ? ImgRoll : ImgClose) : ImgOpen}
+          src={ButtonImg}
           alt="RollButton"
-          onClick={
-            isVisible
-              ? rollAvailable
-                ? rollSelectedDice
-                : toggleRollOptions
-              : toggleRollOptions
-          }
+          onClick={rollAvailable ? rollSelectedDice : noDiceSelected}
         />
       </div>
     </RollAvailable.Provider>

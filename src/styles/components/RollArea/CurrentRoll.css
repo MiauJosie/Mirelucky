@@ -5,7 +5,7 @@
   align-items: center;
 
   min-width: 20rem;
-  max-width: 61rem;
+  max-width: 71rem;
   height: 40rem;
 }
 
@@ -37,9 +37,11 @@
 }
 
 .CurrentRoll .Container .Dices img {
-  height: 4rem;
-  width: 4rem;
+  height: 5rem;
+  width: 5rem;
   margin: 1rem;
+  border-radius: 100px;
+  outline: solid 1px rgba(166, 166, 166, 0.259);
 
   transition: transform 0.2s ease;
 }
