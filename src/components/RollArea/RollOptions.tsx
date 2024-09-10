@@ -3,6 +3,9 @@ import { useState, useEffect, useContext } from "react";
 import "../../styles/components/RollArea/RollOptions.css";
 import { RollAvailable } from "./RollButton";
 import { Count } from "../RollArea";
+import d20Img from "../../assets/d20.png";
+import combatImg from "../../assets/combatdice.png";
+import locationImg from "../../assets/locationdice.png";
 
 function RollOptions() {
   const [bounces, setBounces] = useState<boolean[]>([false, false, false]);
@@ -72,7 +75,7 @@ function RollOptions() {
           onClick={(event) => handleClick(0, event)}
           onContextMenu={(event) => handleContextMenu(0, event)}
           className={bounces[0] ? "bounce" : ""}
-          src="../../src/assets/d20.png"
+          src={d20Img}
           alt="d20"
         />
       </div>
@@ -82,7 +85,7 @@ function RollOptions() {
           onClick={(event) => handleClick(1, event)}
           onContextMenu={(event) => handleContextMenu(1, event)}
           className={bounces[1] ? "bounce" : ""}
-          src="../../src/assets/combatdice.png"
+          src={combatImg}
           alt="combat dice"
         />
       </div>
@@ -92,7 +95,7 @@ function RollOptions() {
           onClick={(event) => handleClick(2, event)}
           onContextMenu={(event) => handleContextMenu(2, event)}
           className={bounces[2] ? "bounce" : ""}
-          src="../../src/assets/locationdice.png"
+          src={locationImg}
           alt="location dice"
         />
       </div>
