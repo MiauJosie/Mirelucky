@@ -35,7 +35,7 @@ function RollOptions() {
     event.preventDefault();
 
     const newCount = [...count];
-    count[index] > 0 ? (newCount[index] -= 1) : (newCount[index] = 10);
+    count[index] > 0 ? (newCount[index] -= 1) : null;
     setCount(newCount);
 
     animate(index);
@@ -45,10 +45,26 @@ function RollOptions() {
     event.preventDefault();
 
     const newCount = [...count];
-    newCount[index] < 10 ? (newCount[index] += 1) : (newCount[index] = 0);
+    newCount[index] += 1;
     setCount(newCount);
 
     animate(index);
+  };
+
+  const handleWheel = (index: number, event: React.WheelEvent) => {
+    if (event.deltaY > 0) {
+      const newCount = [...count];
+      count[index] > 0 ? (newCount[index] -= 1) : null;
+      setCount(newCount);
+
+      animate(index);
+    } else {
+      const newCount = [...count];
+      newCount[index] += 1;
+      setCount(newCount);
+
+      animate(index);
+    }
   };
 
   const animate = (index: number) => {
@@ -74,6 +90,7 @@ function RollOptions() {
         <img
           onClick={(event) => handleClick(0, event)}
           onContextMenu={(event) => handleContextMenu(0, event)}
+          onWheel={(event) => handleWheel(0, event)}
           className={bounces[0] ? "bounce" : ""}
           src={d20Img}
           alt="d20"
@@ -84,6 +101,7 @@ function RollOptions() {
         <img
           onClick={(event) => handleClick(1, event)}
           onContextMenu={(event) => handleContextMenu(1, event)}
+          onWheel={(event) => handleWheel(1, event)}
           className={bounces[1] ? "bounce" : ""}
           src={combatImg}
           alt="combat dice"
@@ -94,6 +112,7 @@ function RollOptions() {
         <img
           onClick={(event) => handleClick(2, event)}
           onContextMenu={(event) => handleContextMenu(2, event)}
+          onWheel={(event) => handleWheel(2, event)}
           className={bounces[2] ? "bounce" : ""}
           src={locationImg}
           alt="location dice"

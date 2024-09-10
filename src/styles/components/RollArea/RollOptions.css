@@ -4,13 +4,22 @@
   justify-content: space-between;
   align-items: center;
 
-  width: 20rem;
+  width: 22rem;
 
   transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
   position: relative;
 }
 
-.RollOptions img {
+.RollOptions .OptionWrapper {
+  height: 10rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.RollOptions .OptionWrapper img {
   height: 6rem;
   width: 6rem;
   margin: 0;
@@ -22,18 +31,9 @@
   box-shadow: 0 0 15px 2px rgba(45, 45, 45, 0.196);
 }
 
-.RollOptions h2 {
+.RollOptions .OptionWrapper h2 {
   height: 5rem;
   display: flex;
-  align-items: center;
-}
-
-.RollOptions .OptionWrapper {
-  height: 11rem;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   align-items: center;
 }
 

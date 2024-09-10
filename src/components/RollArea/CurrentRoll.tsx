@@ -74,18 +74,20 @@ function CurrentRoll() {
           style={{ opacity: hasBeenRolled ? "" : "0" }}
         >
           <h3>D20</h3>
-          <div className="Dices">
-            {d20Result.map((result: number, index: number) => (
-              <img
-                style={{
-                  transform: hasBeenRolled ? "" : "translateY(5rem)",
-                  opacity: hasBeenRolled ? "" : "0",
-                }}
-                key={index}
-                src={d20List[result - 1]} // Use result to index into d20List (subtract 1 since arrays are 0-indexed)
-                alt={`d20-${result}`}
-              />
-            ))}
+          <div className="wrapper">
+            <div className="Dices">
+              {d20Result.map((result: number, index: number) => (
+                <img
+                  style={{
+                    transform: hasBeenRolled ? "" : "translateY(5rem)",
+                    opacity: hasBeenRolled ? "" : "0",
+                  }}
+                  key={index}
+                  src={d20List[result - 1]} // Use result to index into d20List (subtract 1 since arrays are 0-indexed)
+                  alt={`d20-${result}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       ) : null}
@@ -96,18 +98,20 @@ function CurrentRoll() {
           style={{ opacity: hasBeenRolled ? "" : "0" }}
         >
           <h3>Combat Dice</h3>
-          <div className="Dices">
-            {combatResult.map((result: number, index: number) => (
-              <img
-                style={{
-                  transform: hasBeenRolled ? "" : "translateY(5rem)",
-                  opacity: hasBeenRolled ? "" : "0",
-                }}
-                key={index}
-                src={combatList[result - 1]} // Combat dice result (1-6) corresponds to the index in combatDiceList
-                alt={`combat-${result}`}
-              />
-            ))}
+          <div className="wrapper">
+            <div className="Dices">
+              {combatResult.map((result: number, index: number) => (
+                <img
+                  style={{
+                    transform: hasBeenRolled ? "" : "translateY(5rem)",
+                    opacity: hasBeenRolled ? "" : "0",
+                  }}
+                  key={index}
+                  src={combatList[result - 1]} // Combat dice result (1-6) corresponds to the index in combatDiceList
+                  alt={`combat-${result}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       ) : null}
@@ -118,18 +122,20 @@ function CurrentRoll() {
           style={{ opacity: hasBeenRolled ? "" : "0" }}
         >
           <h3>Hit Location</h3>
-          <div className="Dices">
-            {locationResult.map((result: number, index: number) => (
-              <img
-                style={{
-                  transform: hasBeenRolled ? "" : "translateY(5rem)",
-                  opacity: hasBeenRolled ? "" : "0",
-                }}
-                key={index}
-                src={locationList[result - 1]} // Location dice result (1-20) corresponds to the index in locationDiceList
-                alt={`location-${result}`}
-              />
-            ))}
+          <div className="wrapper">
+            <div className="Dices">
+              {locationResult.map((result: number, index: number) => (
+                <img
+                  style={{
+                    transform: hasBeenRolled ? "" : "translateY(5rem)",
+                    opacity: hasBeenRolled ? "" : "0",
+                  }}
+                  key={index}
+                  src={locationList[result - 1]} // Location dice result (1-20) corresponds to the index in locationDiceList
+                  alt={`location-${result}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       ) : null}
