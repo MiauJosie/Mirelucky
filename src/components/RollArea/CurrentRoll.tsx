@@ -4,22 +4,22 @@ import "../../styles/components/RollArea/CurrentRoll.css";
 
 function CurrentRoll() {
   const [
-    count,
-    setCount,
+    _count,
+    _setCount,
     d20Result,
-    setD20Result,
+    _setD20Result,
     combatResult,
-    setCombatResult,
+    _setCombatResult,
     locationResult,
-    setLocationResult,
+    _setLocationResult,
     d20Rolled,
-    setD20Rolled,
+    _setD20Rolled,
     combatRolled,
-    setCombatRolled,
+    _setCombatRolled,
     locationRolled,
-    setLocationRolled,
+    _setLocationRolled,
     hasBeenRolled,
-    setHasBeenRolled,
+    _setHasBeenRolled,
   ] = useContext(Count);
 
   const [d20List, setD20List] = useState<string[]>([]);

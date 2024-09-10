@@ -10,18 +10,18 @@ function RollOptions() {
   const [
     count,
     setCount,
-    /*d20Result,
-    setD20Result,
-    combatResult,
-    setCombatResult,
-    locationResult,
-    setLocationResult,
-    d20Rolled,
-    setD20Rolled,
-    combatRolled,
-    setCombatRolled,
-    locationRolled,
-    setLocationRolled,*/
+    _d20Result,
+    _setD20Result,
+    _combatResult,
+    _setCombatResult,
+    _locationResult,
+    _setLocationResult,
+    _d20Rolled,
+    _setD20Rolled,
+    _combatRolled,
+    _setCombatRolled,
+    _locationRolled,
+    _setLocationRolled,
   ] = useContext(Count);
 
   useEffect(() => {
