@@ -1,3 +1,4 @@
+import React from "react";
 import RollArea from "./components/RollArea";
 import RollLog from "./components/RollLog";
 import "./styles/App.css";

@@ -1,3 +1,4 @@
+import React from "react";
 import { createContext, useContext, useState } from "react";
 import "../../styles/components/RollArea/RollButton.css";
 import ButtonImg from "../../assets/rollbutton.png";

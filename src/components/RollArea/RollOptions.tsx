@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useEffect, useContext } from "react";
 import "../../styles/components/RollArea/RollOptions.css";
 import { RollAvailable } from "./RollButton";
