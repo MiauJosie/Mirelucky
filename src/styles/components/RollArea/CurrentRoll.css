@@ -40,7 +40,8 @@
   grid-auto-flow: column;*/
   display: flex;
   flex-direction: row;
-  overflow: scroll;
+  overflow-x: scroll;
+  overflow-y: hidden;
   padding-bottom: 0.5rem;
 
   width: 100%;

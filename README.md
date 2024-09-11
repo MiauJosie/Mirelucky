@@ -1,6 +1,6 @@
 # Mirelucky
 
-> Mirelucky is a Fallout2d20 dice roller I made for the Fallout TTRPG community!
+> Mirelucky is a Fallout2d20 dice roller I'm developing for the Fallout TTRPG community!
 
 ## To-do priority list
 
