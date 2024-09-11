@@ -4,7 +4,7 @@
 
 ## To-do priority list
 
-[importance]
+### importance
 
 [] Roll log section
 [] Make dice stuff larger
@@ -15,7 +15,7 @@
 [] Rolling loot
 [] 3d dice rolling animations
 
-[difficulty]
+### difficulty
 
 [] 3d dice rolling animations
 [] Rolling loot
@@ -26,6 +26,6 @@
 [] Alternate hit locations (Quadraped, Mr. Handy, Flying)
 [] Make dice stuff larger
 
-### Future plans
+## Future plans
 
 - Make it session-based using websocket so players and GMs can see eachother's rolls.
