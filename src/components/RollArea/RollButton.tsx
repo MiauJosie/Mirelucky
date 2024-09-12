@@ -26,6 +26,9 @@ function RollButton() {
     setHasBeenRolled,
   ] = useContext(Count);
 
+  const [noDiceSelected, setNoDiceSelected] = useState<boolean>(false);
+  const [blablabla, setblablabla] = useState<boolean>(false);
+
   const rollThisDice = (faces: number) => {
     return Math.floor(Math.random() * faces) + 1;
   };
@@ -67,8 +70,26 @@ function RollButton() {
     setCount([0, 0, 0]);
   };
 
-  const noDiceSelected = () => {
-    alert("You didn't select any dice!");
+  const nothing = () => {
+    console.log("nothing");
+  };
+
+  const handleNoDiceSelected = () => {
+    setNoDiceSelected(true);
+
+    setblablabla(false);
+
+    setTimeout(() => {
+      setblablabla(true);
+    }, 200);
+
+    setTimeout(() => {
+      setblablabla(false);
+    }, 1800);
+
+    setTimeout(() => {
+      setNoDiceSelected(false);
+    }, 2000);
   };
 
   return (
@@ -78,8 +99,24 @@ function RollButton() {
         <img
           src={ButtonImg}
           alt="RollButton"
-          onClick={rollAvailable ? rollSelectedDice : noDiceSelected}
+          onClick={
+            rollAvailable
+              ? rollSelectedDice
+              : noDiceSelected
+              ? nothing
+              : handleNoDiceSelected
+          }
         />
+        {noDiceSelected ? (
+          <div
+            className="RollAlert"
+            style={{
+              transform: blablabla ? "" : "translateY(-12rem)",
+            }}
+          >
+            <h2>No dice selected</h2>
+          </div>
+        ) : null}
       </div>
     </RollAvailable.Provider>
   );

@@ -1,7 +1,8 @@
 :root {
-  --RED: rgba(198, 188, 74, 0.847);
+  --RED: #fae23d;
   --WHITE: rgb(255, 255, 255);
   --BACKGROUNDTRANSPARENCY: rgba(136, 136, 136, 0.085);
+  --BAD: #fa3d3d;
 }
 
 * {

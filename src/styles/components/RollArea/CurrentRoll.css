@@ -37,11 +37,10 @@
 }
 
 .CurrentRoll .Container .Dices {
-  /*display: grid;
-  grid-auto-flow: column;*/
   display: flex;
   flex-direction: row;
-  overflow-x: scroll;
+  scrollbar-color: rgba(255, 255, 255, 0.171) rgba(255, 255, 255, 0);
+  overflow-x: auto;
   overflow-y: hidden;
   padding-bottom: 0.5rem;
 
