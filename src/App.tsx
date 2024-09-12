@@ -1,5 +1,6 @@
 import RollArea from "./components/RollArea";
 import RollLog from "./components/RollLog";
+import Placeholder from "./components/Placeholder";
 import "./styles/App.css";
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <section>
       <RollLog />
       <RollArea />
+      <Placeholder />
     </section>
   );
 }
