@@ -90,3 +90,19 @@
 h4 span {
   color: #ecdfb3;
 }
+
+.spin {
+  animation: spin 0.5s ease forwards;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

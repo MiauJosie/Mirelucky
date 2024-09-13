@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import "../../styles/components/RollArea/CurrentRoll.css";
 import { Context } from "../../App";
 import { useImages } from "../../functions/useImages";
@@ -19,6 +19,10 @@ function CurrentRoll() {
     combatList,
     locationList,
   } = useContext(Context);
+
+  const [d20Bounces, setD20Bounces] = useState<boolean[]>([]);
+  const [combatBounces, setCombatBounces] = useState<boolean[]>([]);
+  const [locationBounces, setLocationBounces] = useState<boolean[]>([]);
 
   let d20Total: number = 0;
   let combatDamage: number = 0;
@@ -65,6 +69,54 @@ function CurrentRoll() {
       const newResult = [...locationResult]; // Copy the current d20Result array
       newResult[index] = newRoll; // Update the specific dice at the index
       setLocationResult(newResult); // Update the state with the new array
+    }
+
+    animate(index, dice);
+  };
+
+  const animate = (index: number, dice: string) => {
+    if (dice === "d20") {
+      setD20Bounces((prevBounces) => {
+        const newBounces = [...prevBounces];
+        newBounces[index] = true;
+        return newBounces;
+      });
+
+      setTimeout(() => {
+        setD20Bounces((prevBounces) => {
+          const newBounces = [...prevBounces];
+          newBounces[index] = false;
+          return newBounces;
+        });
+      }, 100);
+    } else if (dice === "combat") {
+      setCombatBounces((prevBounces) => {
+        const newBounces = [...prevBounces];
+        newBounces[index] = true;
+        return newBounces;
+      });
+
+      setTimeout(() => {
+        setCombatBounces((prevBounces) => {
+          const newBounces = [...prevBounces];
+          newBounces[index] = false;
+          return newBounces;
+        });
+      }, 100);
+    } else {
+      setLocationBounces((prevBounces) => {
+        const newBounces = [...prevBounces];
+        newBounces[index] = true;
+        return newBounces;
+      });
+
+      setTimeout(() => {
+        setLocationBounces((prevBounces) => {
+          const newBounces = [...prevBounces];
+          newBounces[index] = false;
+          return newBounces;
+        });
+      }, 100);
     }
   };
 
@@ -132,6 +184,7 @@ function CurrentRoll() {
                   }}
                   key={index}
                   onClick={() => rerollDice(index, "d20")}
+                  className={d20Bounces[index] ? "spin" : ""}
                   src={d20List[result - 1]}
                   alt={`d20-${result}`}
                 />
@@ -164,6 +217,7 @@ function CurrentRoll() {
                     opacity: hasBeenRolled ? "" : "0",
                   }}
                   key={index}
+                  className={combatBounces[index] ? "spin" : ""}
                   onClick={() => rerollDice(index, "combat")}
                   src={combatList[result - 1]}
                   alt={`combat-${result}`}
@@ -200,6 +254,7 @@ function CurrentRoll() {
                     opacity: hasBeenRolled ? "" : "0",
                   }}
                   key={index}
+                  className={locationBounces[index] ? "spin" : ""}
                   onClick={() => rerollDice(index, "location")}
                   src={locationList[result - 1]}
                   alt={`location-${result}`}
