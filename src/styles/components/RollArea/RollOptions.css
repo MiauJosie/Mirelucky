@@ -26,9 +26,9 @@
 
   background: var(--BACKGROUNDTRANSPARENCY);
   border-radius: 100px;
-  backdrop-filter: blur(2px);
   outline: solid 1px rgba(255, 255, 255, 0.259);
-  box-shadow: 0 0 15px 2px rgba(45, 45, 45, 0.196);
+  backdrop-filter: blur(3px);
+  box-shadow: 0 0 15px 2px rgba(45, 45, 45, 0.303);
 }
 
 .RollOptions .OptionWrapper h2 {

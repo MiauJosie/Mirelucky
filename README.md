@@ -10,7 +10,7 @@
 
 [X] Make dice stuff larger
 
-[!] Section which totals the dice results, both for Combat Dice and for d20s
+[X] Section which totals the dice results, both for Combat Dice and for d20s
 
 [ ] Button to change page language (English > PT-BR)
 

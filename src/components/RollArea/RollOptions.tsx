@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect, useContext } from "react";
 import "../../styles/components/RollArea/RollOptions.css";
 import { RollAvailable } from "./RollButton";
-import { Count } from "../RollArea";
+import { Context } from "../../App";
 import d20Img from "../../assets/d20.png";
 import combatImg from "../../assets/combatdice.png";
 import locationImg from "../../assets/locationdice.png";
@@ -10,22 +10,7 @@ import locationImg from "../../assets/locationdice.png";
 function RollOptions() {
   const [bounces, setBounces] = useState<boolean[]>([false, false, false]);
   const [setRollAvailable] = useContext(RollAvailable);
-  const [
-    count,
-    setCount,
-    _d20Result,
-    _setD20Result,
-    _combatResult,
-    _setCombatResult,
-    _locationResult,
-    _setLocationResult,
-    _d20Rolled,
-    _setD20Rolled,
-    _combatRolled,
-    _setCombatRolled,
-    _locationRolled,
-    _setLocationRolled,
-  ] = useContext(Count);
+  const { count, setCount } = useContext(Context);
 
   useEffect(() => {
     setRollAvailable(count[0] > 0 || count[1] > 0 || count[2] > 0);

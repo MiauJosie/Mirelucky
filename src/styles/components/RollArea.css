@@ -21,3 +21,22 @@
   font-size: 5rem;
   color: var(--RED);
 }
+
+.RollAlert {
+  position: absolute;
+  top: 2rem;
+  transition: transform 0.2s ease;
+}
+
+.RollAlert h3 {
+  color: #fa3d3d;
+  text-shadow: none;
+
+  background: var(--BACKGROUNDTRANSPARENCY);
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.259);
+  box-shadow: 0 0 15px 2px rgba(45, 45, 45, 0.303);
+
+  padding: 1rem;
+}

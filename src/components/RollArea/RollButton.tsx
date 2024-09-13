@@ -3,31 +3,24 @@ import "../../styles/components/RollArea/RollButton.css";
 import ButtonImg from "../../assets/rollbutton.png";
 import RollOptions from "./RollOptions";
 
-import { Count } from "../RollArea";
+import { Context } from "../../App";
 
 function RollButton() {
   const [rollAvailable, setRollAvailable] = useState<boolean>(false);
-  const [
+  const {
     count,
     setCount,
-    _d20Result,
     setD20Result,
-    _combatResult,
     setCombatResult,
-    _locationResult,
     setLocationResult,
-    _d20Rolled,
     setD20Rolled,
-    _combatRolled,
     setCombatRolled,
-    _locationRolled,
     setLocationRolled,
-    _hasBeenRolled,
     setHasBeenRolled,
-  ] = useContext(Count);
-
-  const [noDiceSelected, setNoDiceSelected] = useState<boolean>(false);
-  const [blablabla, setblablabla] = useState<boolean>(false);
+    noDiceSelected,
+    setNoDiceSelected,
+    setblablabla,
+  } = useContext(Context);
 
   const rollThisDice = (faces: number) => {
     return Math.floor(Math.random() * faces) + 1;
@@ -107,16 +100,6 @@ function RollButton() {
               : handleNoDiceSelected
           }
         />
-        {noDiceSelected ? (
-          <div
-            className="RollAlert"
-            style={{
-              transform: blablabla ? "" : "translateY(-12rem)",
-            }}
-          >
-            <h2>No dice selected</h2>
-          </div>
-        ) : null}
       </div>
     </RollAvailable.Provider>
   );
