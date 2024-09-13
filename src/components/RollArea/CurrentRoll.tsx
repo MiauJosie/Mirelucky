@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import "../../styles/components/RollArea/CurrentRoll.css";
 import { Context } from "../../App";
 import { useImages } from "../../functions/useImages";
