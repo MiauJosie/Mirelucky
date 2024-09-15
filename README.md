@@ -4,41 +4,21 @@
 
 ## To-do priority list
 
-### importance
+[BEING IMPLEMENTED] Roll log section
 
-[ ] Roll log section
+[DONE] Make dice stuff larger
 
-[X] Make dice stuff larger
+[DONE] Section which totals the dice results, both for Combat Dice and for d20s
 
-[X] Section which totals the dice results, both for Combat Dice and for d20s
+[NEXT ON THE LIST] Button to change page language (English > PT-BR)
 
-[ ] Button to change page language (English > PT-BR)
+[WILL BE DONE] Alternate hit locations (Quadraped, Mr. Handy, Flying)
 
-[ ] Alternate hit locations (Quadraped, Mr. Handy, Flying)
+[MIGHT NOT BE DONE] Adjustable size of buttons
 
-[ ] Adjust the size of the dice/buttons
+[NOT HAPPENING] Rolling loot
 
-[ ] Rolling loot
-
-[ ] 3d dice rolling animations
-
-### difficulty
-
-[ ] 3d dice rolling animations
-
-[ ] Rolling loot
-
-[ ] Roll log section
-
-[ ] Section which totals the dice results, both for Combat Dice and for d20s
-
-[ ] Button to change page language (English > PT-BR)
-
-[ ] Adjust the size of the dice/buttons
-
-[ ] Alternate hit locations (Quadraped, Mr. Handy, Flying)
-
-[ ] Make dice stuff larger
+[NOT HAPPENING] 3d dice rolling animations
 
 ## Future plans
 
