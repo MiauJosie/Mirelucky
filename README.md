@@ -2,6 +2,8 @@
 
 > Mirelucky is a Fallout2d20 dice roller I'm developing for the Fallout TTRPG community!
 
+# https://mirelucky.vercel.app/
+
 ## To-do priority list
 
 [BEING IMPLEMENTED] Roll log section
